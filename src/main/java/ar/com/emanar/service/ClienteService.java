@@ -70,7 +70,7 @@ public class ClienteService {
 			clienteBuilder.id(cliente.getId())
 			.nombre(clienteActualizado.getNombre())
 			.direccion(clienteActualizado.getDireccion())
-			.numeroDeCelular(cliente.getNumeroDeCelular());
+			.numeroDeCelular(clienteActualizado.getNumeroDeCelular());
 		});
 		
 		return clienteBuilder.build();

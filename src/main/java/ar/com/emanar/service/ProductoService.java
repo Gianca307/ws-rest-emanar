@@ -29,7 +29,7 @@ public class ProductoService {
 	
 	public Producto findById(Long id) {
 		return this.productoRepository.findById(id).orElseThrow(
-				() -> new ResourceNotFoundException("El proveedor con ese ID no existe: " + id));
+				() -> new ResourceNotFoundException("El producto con ese ID no existe: " + id));
 	}
 	
 	public List<Producto> findAll(){

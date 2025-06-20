@@ -61,6 +61,7 @@ public class VentaService {
 	@Transactional
 	public Venta update (Venta ventaActualizada, Long idCliente, Long idVenta) {
 		Optional<Venta> ventaOptional = this.ventaRepository.findById(idVenta);
+		ventaActualizada.setId(idVenta);
 		
 		Cliente clienteGuardado = this.clienteRepository.findById(idCliente).orElseThrow(() -> new ResourceNotFoundException("El cliente con ese ID no existe: " + idCliente));
 		ventaActualizada.setCliente(clienteGuardado);
@@ -83,7 +84,7 @@ public class VentaService {
 			} else {
 				productosVendidosGuardados.forEach(productoVendidoGuardado ->{
 					if (productoVendidoActualizado.getId().equals(productoVendidoGuardado.getId())) {
-						if (!(productoVendidoActualizado.getCantidad() == (productoVendidoGuardado.getCantidad()))) {
+						if (!(productoVendidoActualizado.getCantidad().equals(productoVendidoGuardado.getCantidad()))) {
 							Integer stock = producto.getStock();
 							producto.setStock(stock + productoVendidoGuardado.getCantidad() - productoVendidoActualizado.getCantidad());
 							if (producto.getStock() < 0) throw new InsufficientStockException("La cantidad vendida excede al stock disponible.");
@@ -112,7 +113,7 @@ public class VentaService {
 		
 		Venta ventaExistente = buildVenta(ventaOptional, ventaActualizada);
 		
-		return ventaExistente;
+		return this.ventaRepository.save(ventaExistente);
 	}
 	
 	@Transactional

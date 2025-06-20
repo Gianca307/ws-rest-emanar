@@ -54,7 +54,7 @@ public class ProveedorService {
 			this.gastoRepository.save(gasto);
 		});
 		
-		proveedorRepository.save(proveedorGuardado);
+		proveedorRepository.delete(proveedorGuardado);
 		
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("delete", Boolean.TRUE);

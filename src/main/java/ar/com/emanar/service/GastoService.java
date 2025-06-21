@@ -58,7 +58,8 @@ public class GastoService {
 	
 	@Transactional
 	public Gasto update (Gasto gastoActualizado, Long idGasto ,Long idProveedor, String formaDePago) {
-		Optional<Gasto> gastoOptional = this.gastoRepository.findById(idGasto);		
+		Optional<Gasto> gastoOptional = this.gastoRepository.findById(idGasto);
+		gastoActualizado.setId(idGasto);
 		
 		Proveedor proveedorGuardado = this.proveedorRepository.findById(idProveedor).orElseThrow(() -> new ResourceNotFoundException("El proveedor con ese ID no existe: " +idProveedor));
 		gastoActualizado.setProveedor(proveedorGuardado);

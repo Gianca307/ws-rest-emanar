@@ -1,8 +1,6 @@
 package ar.com.emanar.service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -43,7 +41,7 @@ public class CategoriaProductoService {
 	}
 	
 	@Transactional
-	public Map<String, Boolean> deleteById (Long id){
+	public void deleteById (Long id){
 		
 		CategoriaProducto categoriaProductoGuardado = findById(id);
 		
@@ -55,11 +53,6 @@ public class CategoriaProductoService {
 		});
 		
 		this.categoriaProductoRepository.delete(categoriaProductoGuardado);
-
-		Map<String, Boolean> response = new HashMap<>();
-		response.put("deleted", Boolean.TRUE);
-		
-		return response;
 	}
 	
 }

@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -59,6 +60,7 @@ public class Producto {
 	
 	@ManyToOne
 	@JoinColumn(name = "categoriaProducto_id", referencedColumnName = "id")
+	@ToString.Exclude
 	private CategoriaProducto categoriaProducto;
 	
 }

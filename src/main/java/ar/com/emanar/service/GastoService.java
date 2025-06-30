@@ -111,7 +111,7 @@ public class GastoService {
 	}
 	
 	@Transactional
-	public Map<String, Boolean> deleteById (Long id){
+	public void deleteById (Long id){
 		Gasto gastoGuardado = this.gastoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("El gasto con ese ID no existe: " + id));
 		
 		gastoGuardado.getProductosComprados().forEach(productoComprado ->{
@@ -124,10 +124,6 @@ public class GastoService {
 		});
 		
 		this.gastoRepository.delete(gastoGuardado);
-		
-		Map<String, Boolean> response = new HashMap<>();
-		response.put("delete", Boolean.TRUE);
-		return response;
 	}
 
 	private Gasto buildGasto(Optional<Gasto> gastoOptional, Gasto gastoActualizado) {

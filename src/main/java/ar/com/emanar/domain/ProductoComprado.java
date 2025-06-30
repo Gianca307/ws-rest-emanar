@@ -1,5 +1,7 @@
 package ar.com.emanar.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -35,5 +37,6 @@ public class ProductoComprado {
 	
 	@ManyToOne
 	@JoinColumn(name = "gasto_id", referencedColumnName = "id")
+	@JsonBackReference
 	private Gasto gasto;
 }

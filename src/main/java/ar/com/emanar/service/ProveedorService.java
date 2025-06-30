@@ -1,8 +1,6 @@
 package ar.com.emanar.service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -43,7 +41,7 @@ public class ProveedorService {
 	}
 	
 	@Transactional
-	public Map<String, Boolean> deleteById(Long id){
+	public void deleteById(Long id){
 		
 		Proveedor proveedorGuardado = findById(id);
 		
@@ -55,10 +53,6 @@ public class ProveedorService {
 		});
 		
 		proveedorRepository.delete(proveedorGuardado);
-		
-		Map<String, Boolean> response = new HashMap<>();
-		response.put("delete", Boolean.TRUE);
-		return response;
 	}
 
 	private Proveedor buildProveedor(Proveedor proveedorActualizado, Optional<Proveedor> proveedorOptional) {

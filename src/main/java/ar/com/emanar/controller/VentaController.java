@@ -16,38 +16,54 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ar.com.emanar.domain.Venta;
 import ar.com.emanar.service.VentaService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 
 @RestController
+@Tag(name = "Ventas", description = "Operaciones sobre ventas.")
 @AllArgsConstructor
 @RequestMapping("/api/v1")
 public class VentaController {
 	private VentaService ventaService;
 	
+	@Operation(summary = "Obtiene una venta por ID", description = "Devuelve una venta, identificada por su ID.")
 	@GetMapping("/venta/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public Venta findById(@PathVariable Long id) {
 		return this.ventaService.findById(id);
 	}
 	
+	@Operation(summary = "Obtiene todas las ventas", description = "Devuelve una lista de ventas, con los productos vendidos.")
 	@GetMapping("/ventas")
 	@ResponseStatus(HttpStatus.OK)
 	public List<Venta> findAll() {
 		return this.ventaService.findAll();
 	}
 	
+	@Operation(summary = "Guarda una venta", description = "Persiste una venta, con sus productos vendidos.")
 	@PostMapping("/venta")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Venta save(@RequestBody Venta venta,@RequestParam Long idCliente) {
 		return this.ventaService.save(venta, idCliente);
 	}
 	
+	@Operation(
+			summary = "Modifica una venta por ID", 
+			description = "Actualiza una venta, identificada por su id. " +
+			"Agrega, modifica o elimina los productos vendidos. " +
+					"Actualiza el stock según la operación.")
 	@PutMapping("/venta/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Venta update(@RequestBody Venta venta, @RequestParam Long idCliente, @PathVariable Long id) {
 		return this.ventaService.update(venta, idCliente, id);
 	}
 	
+	@Operation(
+			summary = "Elimina una venta por ID",
+			description = "Elimina una venta, identificada por su id. " +
+			"Elimina los productos vendidos vinculados a la venta." +
+					"Actualiza el stock.")
 	@DeleteMapping("/venta/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deleteById(@PathVariable Long id) {

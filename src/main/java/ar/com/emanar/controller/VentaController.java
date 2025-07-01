@@ -41,7 +41,10 @@ public class VentaController {
 		return this.ventaService.findAll();
 	}
 	
-	@Operation(summary = "Guarda una venta", description = "Persiste una venta, con sus productos vendidos.")
+	@Operation(
+			summary = "Guarda una venta", 
+			description = "Persiste una venta, con sus productos vendidos." + 
+			"Actualiza el stock de los productos relacionados con la venta.")
 	@PostMapping("/venta")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Venta save(@RequestBody Venta venta,@RequestParam Long idCliente) {

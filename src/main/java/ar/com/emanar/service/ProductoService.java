@@ -62,7 +62,7 @@ public class ProductoService {
 	}
 	
 	@Transactional
-	public Map<String, Boolean> deleteById(Long Id){
+	public void deleteById(Long Id){
 		Producto productoGuardado = findById(Id);
 		
 		List<ProductoComprado> productosComprados = this.productoCompradoRepository.findByProducto(productoGuardado);
@@ -79,10 +79,6 @@ public class ProductoService {
 		});
 		
 		this.productoRepository.delete(productoGuardado);
-		
-		Map<String, Boolean> response = new HashMap<>();
-		response.put("delete", Boolean.TRUE);
-		return response;
 	}
 
 	private Producto buildProducto(Optional<Producto> optionalProducto, Producto productoActualizado) {

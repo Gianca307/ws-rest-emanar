@@ -15,38 +15,49 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ar.com.emanar.domain.Proveedor;
 import ar.com.emanar.service.ProveedorService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 
 @RestController
+@Tag(name = "Proveedores", description = "Operaciones sobre proveedores")
 @RequestMapping("/api/v1")
 @AllArgsConstructor
 public class ProveedorController {
 	private ProveedorService proveedorService;
 	
+	@Operation(summary = "Obtener proveedor por ID", description = "Devuelve un proveedor, identificado por su ID.")
 	@GetMapping("/proveedor/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public Proveedor findById(@PathVariable Long id) {
 		return this.proveedorService.findById(id);
 	}
 	
+	@Operation(summary = "Obtiene todos los proveedores", description = "Devuelve una lista de proveedores.")
 	@GetMapping("/proveedores")
 	@ResponseStatus(HttpStatus.OK)
 	public List<Proveedor> findAll() {
 		return this.proveedorService.findAll();
 	}
 	
+	@Operation(summary = "Guarda un proveedor", description = "Persiste un proveedor en el sistema.")
 	@PostMapping("/proveedor")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Proveedor save(@RequestBody Proveedor proveedor) {
 		return this.proveedorService.save(proveedor);
 	}
 	
+	@Operation(summary = "Modifica un proveedor por ID", description = "Actualiza proveedor que se encuentra en el sistema, identificado por su ID.")
 	@PutMapping("/proveedor/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Proveedor update (@RequestBody Proveedor proveedor, @PathVariable Long id) {
 		return this.proveedorService.update(proveedor, id);
 	}
 	
+	@Operation(
+			summary = "Elimina proveedor por Id", 
+			description = "Elimina del sistema el proveedor, identificado por ID." +
+			"Elimina de los gastos la referencia vinculada al id del proveedor.")
 	@DeleteMapping("/proveedor/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deleteById(@PathVariable Long id) {

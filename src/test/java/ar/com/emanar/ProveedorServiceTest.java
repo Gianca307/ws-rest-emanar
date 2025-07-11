@@ -17,7 +17,7 @@ import java.util.List;
 
 @SpringBootTest
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class ProveedorServiceTest {
+public class ProveedorServiceTest extends BaseTest{
 	private final ProveedorService proveedorService;
 	private final GastoRepository gastoRepository;
 	private Proveedor proveedorGuardado;

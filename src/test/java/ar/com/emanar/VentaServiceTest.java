@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class VentaServiceTest {
+public class VentaServiceTest extends BaseTest{
 	private final VentaService ventaService;
 	private Venta ventaGuardada;
 	

@@ -17,7 +17,7 @@ import java.util.List;
 @SpringBootTest
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @DisplayName("Test Categoria Producto")
-public class CategoriaProductoServiceTest {
+public class CategoriaProductoServiceTest extends BaseTest{
 	private final CategoriaProductoService categoriaProductoService;
 	private CategoriaProducto categoriaProductoGuardado;
 	

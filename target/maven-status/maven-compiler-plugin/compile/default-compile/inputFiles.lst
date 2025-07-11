@@ -1,3 +1,9 @@
+G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\controller\CategoriaProductoController.java
+G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\controller\ClienteController.java
+G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\controller\GastoController.java
+G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\controller\ProductoController.java
+G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\controller\ProveedorController.java
+G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\controller\VentaController.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\domain\CategoriaProducto.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\domain\Cliente.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\domain\FormaDePago.java
@@ -7,6 +13,7 @@ G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\mai
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\domain\ProductoVendido.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\domain\Proveedor.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\domain\Venta.java
+G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\exception\GlobalExceptionHandler.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\exception\InsufficientStockException.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\exception\ResourceNotFoundException.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\repository\CategoriaProductoRepository.java

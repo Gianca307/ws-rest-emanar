@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class GastoServiceTest {
+public class GastoServiceTest extends BaseTest{
 	private final GastoService gastoService;
 	private Gasto gastoGuardado;
 	

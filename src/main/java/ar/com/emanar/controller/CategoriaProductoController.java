@@ -3,6 +3,7 @@ package ar.com.emanar.controller;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,6 +29,7 @@ public class CategoriaProductoController {
 	
 	@Operation(summary = "Obtener Categoria de Producto por ID", description = "Devuelve una Categoría")
 	@GetMapping("/categoriaProducto/{id}")
+	@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
 	@ResponseStatus(HttpStatus.OK)
 	public CategoriaProducto findId (@PathVariable Long id) {		
 		return this.categoriaProductoService.findById(id);
@@ -35,6 +37,7 @@ public class CategoriaProductoController {
 	
 	@Operation(summary = "Obtener todas las Categoría de Productos", description = "Devuelve una lista de categoría de productos")
 	@GetMapping("/categoriasProductos")
+	@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
 	@ResponseStatus(HttpStatus.OK)
 	public List<CategoriaProducto> findAll () {
 		return this.categoriaProductoService.findAll();
@@ -42,6 +45,7 @@ public class CategoriaProductoController {
 	
 	@Operation(summary = "Guarda en la base de datos una categoría")
 	@PostMapping("/categoriaProducto")
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
 	public CategoriaProducto create(@RequestBody CategoriaProducto categoriaProducto) {
 		return this.categoriaProductoService.save(categoriaProducto);
@@ -51,6 +55,7 @@ public class CategoriaProductoController {
 			summary = "Modifica una categoría de producto utilizando su ID", 
 			description = "Este endpoint modifica una categoría de producto existente en el sistema, identificada por su ID.")
 	@PutMapping("/categoriaProducto/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
 	public CategoriaProducto update(@RequestBody CategoriaProducto categoriaProducto, @PathVariable Long id) {
 		return this.categoriaProductoService.update(categoriaProducto, id);
@@ -60,6 +65,7 @@ public class CategoriaProductoController {
 			summary = "Elimina una categoría de producto utilizando su ID", 
 			description = "Este endpoint elimina de forma permanente una categoría de producto existente en el sistema, identificada por su ID.")
 	@DeleteMapping("/categoriaProducto/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
 		this.categoriaProductoService.deleteById(id);

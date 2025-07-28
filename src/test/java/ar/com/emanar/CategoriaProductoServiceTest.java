@@ -1,7 +1,6 @@
 package ar.com.emanar;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,7 +15,6 @@ import java.util.List;
 
 @SpringBootTest
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-@DisplayName("Test Categoria Producto")
 public class CategoriaProductoServiceTest extends BaseTest{
 	private final CategoriaProductoService categoriaProductoService;
 	private CategoriaProducto categoriaProductoGuardado;

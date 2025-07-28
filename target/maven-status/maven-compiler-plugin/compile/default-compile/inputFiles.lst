@@ -1,3 +1,8 @@
+G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\config\DatabaseResetScheduler.java
+G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\config\JwtRequestFilter.java
+G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\config\JwtUtil.java
+G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\config\SecurityConfig.java
+G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\controller\AuthController.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\controller\CategoriaProductoController.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\controller\ClienteController.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\controller\GastoController.java
@@ -12,7 +17,11 @@ G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\mai
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\domain\ProductoComprado.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\domain\ProductoVendido.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\domain\Proveedor.java
+G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\domain\Role.java
+G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\domain\Usuario.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\domain\Venta.java
+G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\dto\AuthRequest.java
+G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\dto\AuthResponse.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\exception\GlobalExceptionHandler.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\exception\InsufficientStockException.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\exception\ResourceNotFoundException.java
@@ -23,9 +32,12 @@ G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\mai
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\repository\ProductoRepository.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\repository\ProductoVendidoRepository.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\repository\ProveedorRepository.java
+G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\repository\RoleRepository.java
+G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\repository\UsuarioRepository.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\repository\VentaRepository.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\service\CategoriaProductoService.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\service\ClienteService.java
+G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\service\CustomUserDetailsService.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\service\GastoService.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\service\ProductoService.java
 G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\src\main\java\ar\com\emanar\service\ProveedorService.java

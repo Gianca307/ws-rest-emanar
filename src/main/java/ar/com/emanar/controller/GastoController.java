@@ -3,6 +3,7 @@ package ar.com.emanar.controller;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +30,7 @@ public class GastoController {
 	
 	@Operation(summary = "Obtiene un gasto por ID", description = "Devuelve un gasto, identificado por su ID.")
 	@GetMapping("/gasto/{id}")
+	@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
 	@ResponseStatus(HttpStatus.OK)
 	public Gasto findById (@PathVariable Long id) {
 		return this.gastoService.findById(id);
@@ -36,6 +38,7 @@ public class GastoController {
 	
 	@Operation(summary = "Obtiene todos los gastos", description = "Devuelve una lista de gastos.")
 	@GetMapping("/gastos")
+	@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
 	@ResponseStatus(HttpStatus.OK)
 	public List<Gasto> findAll(){
 		return this.gastoService.findAll();
@@ -47,6 +50,7 @@ public class GastoController {
 			"Persiste los productos comprados. " + 
 					"Actualiza el stock de los productos relacionados al gasto.")
 	@PostMapping("/gasto")
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Gasto save (@RequestBody Gasto gasto,@RequestParam Long idProveedor,@RequestParam String formaDePago) {
 		return this.gastoService.save(gasto, idProveedor, formaDePago);
@@ -58,6 +62,7 @@ public class GastoController {
 			"Agrega, modifica o elimina los productos comprados. " +
 					"Actualiza el stock de los productos relacionados al gasto.")
 	@PutMapping("/gasto/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Gasto update (@RequestBody Gasto gasto, @PathVariable Long id, @RequestParam Long idProveedor, @RequestParam String formaDePago) {
 		return this.gastoService.update(gasto, id, idProveedor, formaDePago);
@@ -68,6 +73,7 @@ public class GastoController {
 			description = "Elimina el gasto del sistema, identificado por su ID. " +
 			"Actualiza el stock de los productos relacionados al gasto.")
 	@DeleteMapping("/gasto/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deleteById(@PathVariable Long id) {
 		this.gastoService.deleteById(id);

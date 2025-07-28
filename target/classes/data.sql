@@ -47,3 +47,12 @@ VALUES
 (5, 1800, 1, 1),
 (5, 1800, 2, 1),
 (10, 2300, 3, 2);
+
+INSERT INTO role (id, role)
+VALUES
+(1, 'ROLE_ADMIN'),
+(2, 'ROLE_USER');
+
+INSERT INTO usuario (username, password, role_id) VALUES 
+('admin','$2a$10$bZU.HBt3VXR00N3Sng/RZ.HHHxo/Quxdnj6//kZ359ntTyjZlmAR6', 1),
+('user','$2a$10$NqRz2JRCPC7AVqfDIQsHcOKW7VUoI2T5IUCmYwfh9Y/bz9y4lMl.q', 2)

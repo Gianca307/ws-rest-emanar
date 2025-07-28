@@ -2,9 +2,11 @@ ar\com\emanar\repository\ProveedorRepository.class
 ar\com\emanar\domain\ProductoComprado.class
 ar\com\emanar\domain\Role.class
 ar\com\emanar\controller\GastoController.class
+ar\com\emanar\dto\AuthResponse$AuthResponseBuilder.class
 ar\com\emanar\domain\Cliente.class
 ar\com\emanar\repository\ProductoCompradoRepository.class
 ar\com\emanar\domain\Venta.class
+ar\com\emanar\service\AuthService.class
 ar\com\emanar\WsRestServerApplication.class
 ar\com\emanar\controller\ClienteController.class
 ar\com\emanar\service\ProveedorService.class
@@ -15,8 +17,9 @@ ar\com\emanar\controller\VentaController.class
 ar\com\emanar\domain\Producto$ProductoBuilder.class
 ar\com\emanar\dto\AuthRequest.class
 ar\com\emanar\domain\Proveedor$ProveedorBuilder.class
+ar\com\emanar\service\JwtService.class
 ar\com\emanar\config\DatabaseResetScheduler.class
-ar\com\emanar\config\JwtUtil.class
+ar\com\emanar\dto\AuthRequest$AuthRequestBuilder.class
 ar\com\emanar\domain\Usuario.class
 ar\com\emanar\dto\AuthResponse.class
 ar\com\emanar\service\CategoriaProductoService.class
@@ -28,9 +31,9 @@ ar\com\emanar\repository\RoleRepository.class
 ar\com\emanar\controller\ProveedorController.class
 ar\com\emanar\domain\ProductoVendido.class
 ar\com\emanar\service\ProductoService.class
+ar\com\emanar\config\ApplicationConfig.class
 ar\com\emanar\domain\Proveedor.class
 ar\com\emanar\repository\CategoriaProductoRepository.class
-ar\com\emanar\service\CustomUserDetailsService.class
 ar\com\emanar\repository\ClienteRepository.class
 ar\com\emanar\repository\VentaRepository.class
 ar\com\emanar\service\GastoService.class
@@ -47,4 +50,5 @@ ar\com\emanar\repository\ProductoVendidoRepository.class
 ar\com\emanar\controller\AuthController.class
 ar\com\emanar\repository\UsuarioRepository.class
 ar\com\emanar\controller\ProductoController.class
+ar\com\emanar\domain\Usuario$UsuarioBuilder.class
 ar\com\emanar\domain\CategoriaProducto.class

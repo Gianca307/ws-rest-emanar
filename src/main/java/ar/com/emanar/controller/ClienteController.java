@@ -3,6 +3,7 @@ package ar.com.emanar.controller;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,6 +29,7 @@ public class ClienteController {
 	
 	@Operation(summary = "Obtener Cliente por ID", description = "Devuelve una Cliente, identificada por su id.")
 	@GetMapping("/cliente/{id}")
+	@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
 	@ResponseStatus(HttpStatus.OK)
 	public Cliente findById(@PathVariable Long id) {
 		return this.clienteService.findById(id);
@@ -35,6 +37,7 @@ public class ClienteController {
 	
 	@Operation(summary = "Obtener todos los clientes", description = "Devuelve una lista de Clientes.")
 	@GetMapping("/clientes")
+	@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
 	@ResponseStatus(HttpStatus.OK)
 	public List<Cliente> findAll(){
 		return this.clienteService.findAll();
@@ -42,6 +45,7 @@ public class ClienteController {
 	
 	@Operation(summary = "Guarda en el sistema un cliente")
 	@PostMapping("/cliente")
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cliente save (@RequestBody Cliente cliente) {
 		return this.clienteService.save(cliente);
@@ -51,6 +55,7 @@ public class ClienteController {
 			summary = "Modifica un cliente por su id", 
 			description = "Modifica un cliente existente en el sistema, identificada por su ID.")
 	@PutMapping("/cliente/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cliente update (@RequestBody Cliente cliente, @PathVariable Long id) {
 		return this.clienteService.update(cliente, id);
@@ -61,6 +66,7 @@ public class ClienteController {
 			description = "Elimina un cliente existente en el sistema, identificada por su ID. " + 
 			"También elimina de las ventas la referencia vinculadas al id del cliente.")
 	@DeleteMapping("/cliente/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deleteById (@PathVariable Long id) {
 		this.clienteService.deleteById(id);

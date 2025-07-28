@@ -3,6 +3,7 @@ package ar.com.emanar.controller;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +30,7 @@ public class ProductoController {
 	
 	@Operation(summary = "Obtiene producto por ID", description = "Devuelve un producto, identificado por su ID.")
 	@GetMapping("/producto/{id}")
+	@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	public Producto findById (@PathVariable Long id) {
 		return this.productoService.findById(id);
@@ -36,6 +38,7 @@ public class ProductoController {
 	
 	@Operation(summary = "Obtiene todos los productos", description = "Devuelve una lista de productos.")
 	@GetMapping("/productos")
+	@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	public List<Producto> findAll (){
 		return this.productoService.findAll();
@@ -43,6 +46,7 @@ public class ProductoController {
 	
 	@Operation(summary = "Guarda un producto", description = "Persiste un producto en el sistema.")
 	@PostMapping("/producto")
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Producto save(@RequestBody Producto producto, @RequestParam Long idCategoriaProducto) {
 		return this.productoService.save(producto, idCategoriaProducto);
@@ -50,6 +54,7 @@ public class ProductoController {
 	
 	@Operation(summary = "Modifica un producto por su ID", description = "Actualiza un producto en el sistema.")
 	@PutMapping("/producto/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Producto update (@RequestBody Producto producto, @RequestParam Long idCategoriaProducto, @PathVariable Long id) {
 		return this.productoService.update(producto, idCategoriaProducto, id);
@@ -60,6 +65,7 @@ public class ProductoController {
 			description = "Elimina un producto, identificado por su ID. " + 
 			"Elimina de los productos comprados y vendidos la referencia vinculada al id del producto.")
 	@DeleteMapping("/producto/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deleteById(@PathVariable Long id) {
 		this.productoService.deleteById(id);

@@ -27,7 +27,7 @@ public class SecurityConfig {
 				.csrf(AbstractHttpConfigurer::disable)
 				.headers(header -> header.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin))
 				.authorizeHttpRequests(auth -> auth
-						.requestMatchers("/auth/**", "/h2-console/**").permitAll()
+						.requestMatchers("/auth/**", "/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
 						.anyRequest().authenticated())
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authenticationProvider(authProvider)

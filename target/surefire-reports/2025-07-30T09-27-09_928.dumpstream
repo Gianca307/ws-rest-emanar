@@ -1,4 +1,4 @@
-# Created at 2025-07-28T17:11:00.333
+# Created at 2025-07-30T09:27:10.193
 Boot Manifest-JAR contains absolute paths in classpath 'G:\gianca\Trabajos\Desarrollo Web\Web Service Rest Emanar\ws-rest-emanar\target\test-classes'
 Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
 'other' has different root

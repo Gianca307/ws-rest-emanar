@@ -30,7 +30,6 @@ public class ProductoController {
 	
 	@Operation(summary = "Obtiene producto por ID", description = "Devuelve un producto, identificado por su ID.")
 	@GetMapping("/producto/{id}")
-	@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	public Producto findById (@PathVariable Long id) {
 		return this.productoService.findById(id);
@@ -38,7 +37,6 @@ public class ProductoController {
 	
 	@Operation(summary = "Obtiene todos los productos", description = "Devuelve una lista de productos.")
 	@GetMapping("/productos")
-	@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	public List<Producto> findAll (){
 		return this.productoService.findAll();

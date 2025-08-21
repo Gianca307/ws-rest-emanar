@@ -34,6 +34,7 @@ public class SecurityConfig {
 				.cors(cors -> cors.configurationSource(corsConfigurationSource()))
 				.headers(header -> header.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin))
 				.authorizeHttpRequests(auth -> auth
+						.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 						.requestMatchers(HttpMethod.GET, "/api/v1/productos").permitAll()
 						.requestMatchers(HttpMethod.GET, "/api/v1/producto/**").permitAll()
 						.requestMatchers("/auth/**",
@@ -46,7 +47,7 @@ public class SecurityConfig {
 				.authenticationProvider(authProvider)
 				.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class) //encargado de auntenticar las credenciales
 				.build();
-	}
+	}	
 	
 	@Bean
 	public CorsConfigurationSource corsConfigurationSource() {

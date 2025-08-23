@@ -38,7 +38,6 @@ public class ProductoController {
 	
 	@Operation(summary = "Obtiene todos los productos", description = "Devuelve una lista de productos.")
 	@GetMapping("/productos")
-	@CrossOrigin(origins = {"http://localhost:5173" , "http://127.0.0.1:5173", "https://silly-custard-9f91d4.netlify.app"})
 	@ResponseStatus(HttpStatus.OK)
 	public List<Producto> findAll (){
 		return this.productoService.findAll();

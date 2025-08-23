@@ -1,5 +1,6 @@
 package ar.com.emanar.config;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.context.annotation.Bean;
@@ -54,9 +55,9 @@ public class SecurityConfig {
 		CorsConfiguration configuration = new CorsConfiguration();
 		
 		// 👇 acá definís quién puede consumir tu API
-		configuration.setAllowedOrigins(List.of("http://localhost:5173", "http://127.0.0.1:5173", "https://silly-custard-9f91d4.netlify.app"));
-		configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-		configuration.setAllowedHeaders(List.of("*"));
+		configuration.addAllowedOriginPattern("*");
+		configuration.setAllowedMethods(Arrays.asList("*"));
+		configuration.setAllowedHeaders(Arrays.asList("*"));
 		configuration.setAllowCredentials(true); // necesario si usás cookies / Authorization headers
 		
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

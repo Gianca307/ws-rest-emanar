@@ -14,8 +14,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
 
 import lombok.RequiredArgsConstructor;
 
@@ -31,6 +31,7 @@ public class SecurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 		return http
 				.csrf(AbstractHttpConfigurer::disable)
+				.cors(cors -> cors.configurationSource(corsConfigurationSource()))
 				.headers(header -> header.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin))
 				.authorizeHttpRequests(auth -> auth
 						.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
@@ -48,13 +49,14 @@ public class SecurityConfig {
 				.build();
 	}	
 	
+	/*
 	@Bean
 	public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration configuration = new CorsConfiguration();
 
         configuration.setAllowCredentials(true);
-        /*configuration.addAllowedOriginPattern("https://silly-custard-9f91d4.netlify.app/");*/
+        configuration.addAllowedOriginPattern("https://silly-custard-9f91d4.netlify.app/");
         configuration.setAllowedOrigins(List.of("https://silly-custard-9f91d4.netlify.app/"));
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type", "X-Requested-With"));
         configuration.setExposedHeaders(List.of("Authorization"));
@@ -62,5 +64,22 @@ public class SecurityConfig {
 
         source.registerCorsConfiguration("/**", configuration);
         return new CorsFilter(source);
+    }*/
+	
+	@Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+
+        configuration.setAllowCredentials(true);
+        configuration.setAllowedOrigins(List.of("https://silly-custard-9f91d4.netlify.app"));
+        configuration.setAllowedHeaders(List.of("Authorization", "Content-Type", "X-Requested-With"));
+        configuration.setExposedHeaders(List.of("Authorization"));
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+
+        return source;
     }
+
 }
